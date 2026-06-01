@@ -21,7 +21,7 @@ export default async function PanelLayout({
   return (
     <AppShell
       heading="Panel privado"
-      description="Organiza tu foco diario, revisa tu progreso y mantene tus habitos y metas en un solo sistema."
+      description="Organizá tu foco diario, revisá tu progreso y mantené tus hábitos y metas en un solo sistema."
       profileName={userContext.profile.full_name ?? userContext.user.email ?? "Usuario"}
       planName={userContext.plan.name}
       signOutAction={signOutAction}

@@ -28,7 +28,7 @@ export async function saveGoalAction(formData: FormData) {
   const supabase = await getSupabaseServerClient();
 
   if (!userContext || !supabase) {
-    redirectWithMessage("Necesitas iniciar sesion para editar metas.", "error");
+    redirectWithMessage("Necesitás iniciar sesión para editar metas.", "error");
   }
 
   const parsed = goalSchema.safeParse({

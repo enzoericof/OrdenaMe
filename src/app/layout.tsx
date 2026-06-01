@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "OrdenaMe | Sistema personal privado",
-  description: "Panel privado para organizar habitos, metas y progreso personal desde un solo lugar.",
+  description: "Panel privado para organizar hábitos, metas y progreso personal desde un solo lugar.",
 };
 
 export default function RootLayout({

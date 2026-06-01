@@ -50,8 +50,8 @@ export default async function GoalsPage({
         <div className="space-y-4">
           {goals.length === 0 ? (
             <EmptyState
-              title="Todavia no creaste metas"
-              description="Define objetivos con estado y fecha limite para darle direccion a tu semana."
+              title="Todavía no creaste metas"
+              description="Definí objetivos con estado y fecha límite para darle dirección a tu semana."
             />
           ) : (
             goals.map((goal) => (
@@ -65,9 +65,9 @@ export default async function GoalsPage({
                       </span>
                     </div>
                     <p className="max-w-xl text-sm leading-7 text-stone-300">
-                      {goal.description || "Sin descripcion detallada por ahora."}
+                      {goal.description || "Sin descripción detallada."}
                     </p>
-                    <p className="text-sm text-stone-400">Fecha limite: {formatDate(goal.deadline)}</p>
+                    <p className="text-sm text-stone-400">Fecha límite: {formatDate(goal.deadline)}</p>
                   </div>
 
                   <div className="grid gap-4 xl:w-[360px]">

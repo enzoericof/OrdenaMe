@@ -15,7 +15,7 @@ export function HabitForm({ action, submitLabel, defaultValues }: HabitFormProps
       <input type="hidden" name="id" defaultValue={defaultValues?.id} />
 
       <label className="block text-sm text-stone-200">
-        Habito
+        Hábito
         <input
           name="title"
           required
@@ -46,7 +46,7 @@ export function HabitForm({ action, submitLabel, defaultValues }: HabitFormProps
           defaultChecked={defaultValues?.isActive ?? true}
           className="size-4"
         />
-        Mantener como habito activo
+        Mantener como hábito activo
       </label>
 
       <button

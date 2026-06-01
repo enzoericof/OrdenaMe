@@ -1,12 +1,12 @@
 # OrdenaMe
 
-MVP de un sistema web privado de productividad personal, enfocado en el **Plan Basico**:
+MVP de un sistema web privado de productividad personal, enfocado en el **Plan Básico**:
 
 - login privado
 - dashboard
-- habitos
+- hábitos
 - metas
-- limites por plan
+- límites por plan
 - seguridad con Row Level Security
 
 ## Stack
@@ -16,7 +16,7 @@ MVP de un sistema web privado de productividad personal, enfocado en el **Plan B
 - Supabase Auth + Postgres
 - Vercel para deploy
 
-## Configuracion local
+## Configuración local
 
 1. Copia las variables de ejemplo:
 
@@ -32,7 +32,7 @@ NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ```
 
-`NEXT_PUBLIC_SITE_URL` se usa para el flujo de recuperacion de contrasena.
+`NEXT_PUBLIC_SITE_URL` se usa para el flujo de recuperación de contraseña.
 
 3. Aplica el esquema SQL en Supabase:
 
@@ -55,20 +55,20 @@ npm run dev
 
 ## Rutas principales
 
-- `/` landing comercial / demo
+- `/` landing comercial
 - `/login` acceso privado
-- `/forgot-password` recuperacion
-- `/reset-password` nueva contrasena
+- `/forgot-password` recuperación
+- `/reset-password` nueva contraseña
 - `/panel` dashboard
-- `/panel/habits` gestion de habitos
-- `/panel/goals` gestion de metas
+- `/panel/habits` gestión de hábitos
+- `/panel/goals` gestión de metas
 
 ## Que incluye este MVP
 
 - aislamiento multiusuario con `user_id`
 - tablas `profiles`, `plans`, `habits`, `habit_logs`, `goals`
 - RLS aplicada en todas las tablas del usuario
-- limite de 20 habitos activos y 30 metas activas para plan basico
+- límite de 20 hábitos activos y 30 metas activas para plan básico
 - acciones del servidor para auth, CRUD y seguimiento diario
 
 ## Verificacion

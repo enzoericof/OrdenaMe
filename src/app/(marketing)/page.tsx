@@ -5,10 +5,10 @@ import { formatGuaranies } from "@/lib/utils";
 
 const plans = [
   {
-    name: "Basico",
+    name: "Básico",
     price: 50000,
-    highlight: "Validacion simple",
-    items: ["Login privado", "Dashboard", "Habitos", "Metas", "Limites y seguridad"],
+    highlight: "Validación simple",
+    items: ["Login privado", "Dashboard", "Hábitos", "Metas", "Límites y seguridad"],
   },
   {
     name: "Fundador",
@@ -16,9 +16,9 @@ const plans = [
     highlight: "Oferta inicial",
     items: [
       "Cupo limitado",
-      "Configuracion inicial incluida",
+      "Configuración inicial incluida",
       "Feedback directo contigo",
-      "Minimo 3 meses",
+      "Mínimo 3 meses",
     ],
   },
 ];
@@ -37,7 +37,7 @@ export default function MarketingHome() {
                 {APP_NAME}
               </h1>
               <p className="mt-5 max-w-2xl text-lg leading-8 text-stone-200 sm:text-xl">
-                {APP_TAGLINE} Centraliza tu dia entre habitos, metas y progreso semanal desde un solo panel.
+                {APP_TAGLINE} Centralizá tu día entre hábitos, metas y progreso semanal desde un solo panel.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link
@@ -67,7 +67,7 @@ export default function MarketingHome() {
                 <p className="text-sm text-emerald-100/80">Modelo inicial</p>
                 <p className="mt-4 text-3xl font-semibold">Acceso privado</p>
                 <p className="mt-2 text-sm leading-7 text-stone-300">
-                  Sin registro publico. Cada cuenta se crea manualmente para cuidar soporte y calidad.
+                  Sin registro público. Cada cuenta se crea manualmente para cuidar soporte y calidad.
                 </p>
               </div>
             </div>
@@ -76,14 +76,14 @@ export default function MarketingHome() {
 
         <section className="grid gap-6 px-1 py-12 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="rounded-[32px] bg-white p-8 shadow-lg shadow-stone-300/20">
-            <p className="text-xs uppercase tracking-[0.3em] text-emerald-700">Para quien es</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-emerald-700">Para quién es</p>
             <h2 className="mt-4 text-3xl font-semibold text-stone-950">Hecho para personas con demasiadas cosas en la cabeza.</h2>
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
               {[
-                "Estudiantes con materias y examenes",
+                "Estudiantes con materias y exámenes",
                 "Personas que trabajan y estudian",
                 "Freelancers con rutinas dispersas",
-                "Jovenes que quieren construir disciplina",
+                "Jóvenes que quieren construir disciplina",
               ].map((item) => (
                 <div key={item} className="rounded-[24px] border border-stone-200 bg-stone-50 p-4 text-sm text-stone-700">
                   {item}
@@ -93,10 +93,10 @@ export default function MarketingHome() {
           </div>
 
           <div className="rounded-[32px] border border-stone-200 bg-[#ece6da] p-8">
-            <p className="text-xs uppercase tracking-[0.3em] text-stone-500">Demo comercial</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-stone-500">Presentación comercial</p>
             <h2 className="mt-4 text-3xl font-semibold">Primer objetivo</h2>
             <p className="mt-4 text-sm leading-7 text-stone-700">
-              Validar el producto con 3 clientes reales usando el panel durante 30 dias. OrdenaMe se vende como
+              Validar el producto con 3 clientes reales usando el panel durante 30 días. OrdenaMe se vende como
               servicio cerrado, no como software ilimitado.
             </p>
           </div>

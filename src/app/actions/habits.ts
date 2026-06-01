@@ -28,7 +28,7 @@ export async function saveHabitAction(formData: FormData) {
   const supabase = await getSupabaseServerClient();
 
   if (!userContext || !supabase) {
-    redirectWithMessage("Necesitas iniciar sesion para editar habitos.", "error");
+    redirectWithMessage("Necesitás iniciar sesión para editar hábitos.", "error");
   }
 
   const parsed = habitSchema.safeParse({
@@ -53,7 +53,7 @@ export async function saveHabitAction(formData: FormData) {
       .eq("is_active", true);
 
     if ((count ?? 0) >= plan.habit_limit) {
-      redirectWithMessage(`Tu plan permite hasta ${plan.habit_limit} habitos activos.`, "error");
+      redirectWithMessage(`Tu plan permite hasta ${plan.habit_limit} hábitos activos.`, "error");
     }
   }
 

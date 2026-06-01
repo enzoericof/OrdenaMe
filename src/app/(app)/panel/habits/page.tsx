@@ -38,18 +38,18 @@ export default async function HabitsPage({
       <section className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="space-y-4">
           <div className="rounded-[28px] border border-white/10 bg-white/6 p-5">
-            <p className="text-sm text-stone-300">Limite del plan</p>
+            <p className="text-sm text-stone-300">Límite del plan</p>
             <p className="mt-3 text-4xl font-semibold text-white">{userContext.plan.habit_limit}</p>
-            <p className="mt-2 text-sm text-stone-400">Habitos activos permitidos en tu cuenta.</p>
+            <p className="mt-2 text-sm text-stone-400">Hábitos activos permitidos en tu cuenta.</p>
           </div>
-          <HabitForm action={saveHabitAction} submitLabel="Crear habito" />
+          <HabitForm action={saveHabitAction} submitLabel="Crear hábito" />
         </div>
 
         <div className="space-y-4">
           {habitsData.habits.length === 0 ? (
             <EmptyState
-              title="Todavia no creaste habitos"
-              description="Agrega tus primeras rutinas y empieza a registrar cumplimiento diario o semanal."
+              title="Todavía no creaste hábitos"
+              description="Agregá tus primeras rutinas y empezá a registrar cumplimiento diario o semanal."
             />
           ) : (
             habitsData.habits.map((habit) => {
@@ -69,7 +69,7 @@ export default async function HabitsPage({
                         </span>
                       </div>
                       <p className="text-sm text-stone-400">
-                        Creado el {formatDate(habit.created_at.slice(0, 10))}. {logCount} registros en los ultimos 7 dias.
+                        Creado el {formatDate(habit.created_at.slice(0, 10))}. {logCount} registros en los últimos 7 días.
                       </p>
                       <form action={toggleHabitCompletionAction}>
                         <input type="hidden" name="habit_id" value={habit.id} />
@@ -99,7 +99,7 @@ export default async function HabitsPage({
                           type="submit"
                           className="w-full rounded-2xl border border-rose-400/20 bg-rose-500/10 px-4 py-3 text-sm font-medium text-rose-100 transition hover:bg-rose-500/20"
                         >
-                          Eliminar habito
+                          Eliminar hábito
                         </button>
                       </form>
                     </div>

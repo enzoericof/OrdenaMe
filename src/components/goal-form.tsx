@@ -26,18 +26,18 @@ export function GoalForm({ action, submitLabel, defaultValues }: GoalFormProps) 
           maxLength={140}
           defaultValue={defaultValues?.title}
           className="mt-2 w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none focus:border-emerald-300"
-          placeholder="Ej. Aprobar calculo"
+          placeholder="Ej. Aprobar cálculo"
         />
       </label>
 
       <label className="block text-sm text-stone-200">
-        Descripcion
+        Descripción
         <textarea
           name="description"
           rows={4}
           defaultValue={defaultValues?.description ?? ""}
           className="mt-2 w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none focus:border-emerald-300"
-          placeholder="Que significa completar esta meta"
+          placeholder="Qué significa completar esta meta"
         />
       </label>
 
@@ -58,7 +58,7 @@ export function GoalForm({ action, submitLabel, defaultValues }: GoalFormProps) 
         </label>
 
         <label className="block text-sm text-stone-200">
-          Fecha limite
+          Fecha límite
           <input
             name="deadline"
             type="date"

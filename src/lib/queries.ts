@@ -1,8 +1,6 @@
 import { cache } from "react";
-import { cookies } from "next/headers";
 
 import type { Goal, Habit, Plan, Profile } from "@/lib/database.types";
-import { LOCAL_AUTH_COOKIE } from "@/lib/constants";
 import { getDateDaysAgo, getTodayDate } from "@/lib/utils";
 import { getSupabaseServerClient } from "@/lib/supabase/server";
 
@@ -24,36 +22,9 @@ export type CurrentUserContext = {
 };
 
 export const getCurrentUserContext = cache(async (): Promise<CurrentUserContext | null> => {
-  const cookieStore = await cookies();
-  const localSession = cookieStore.get(LOCAL_AUTH_COOKIE)?.value;
   const supabase = await getSupabaseServerClient();
 
   if (!supabase) {
-    if (localSession === "admin") {
-      return {
-        user: {
-          id: "local-admin",
-          email: "admin@local.dev",
-        },
-        profile: {
-          id: "local-profile",
-          user_id: "local-admin",
-          full_name: "Admin local",
-          plan_slug: "basic",
-          created_at: new Date(0).toISOString(),
-        },
-        plan: {
-          id: "local-plan",
-          slug: "basic",
-          name: "Plan Basico",
-          habit_limit: 20,
-          goal_limit: 30,
-          price_pyg: 50000,
-          created_at: new Date(0).toISOString(),
-        },
-      };
-    }
-
     return null;
   }
 
@@ -99,16 +70,6 @@ export async function getDashboardData(userId: string): Promise<DashboardData | 
   const supabase = await getSupabaseServerClient();
 
   if (!supabase) {
-    if (userId === "local-admin") {
-      return {
-        activeHabits: [],
-        activeGoals: [],
-        completedTodayCount: 0,
-        weeklyCompletionCount: 0,
-        weeklyProgressPercent: 0,
-      };
-    }
-
     return null;
   }
 
@@ -162,13 +123,6 @@ export async function getHabitsPageData(userId: string) {
   const supabase = await getSupabaseServerClient();
 
   if (!supabase) {
-    if (userId === "local-admin") {
-      return {
-        habits: [],
-        recentLogs: [],
-      };
-    }
-
     return null;
   }
 
@@ -198,10 +152,6 @@ export async function getGoalsPageData(userId: string) {
   const supabase = await getSupabaseServerClient();
 
   if (!supabase) {
-    if (userId === "local-admin") {
-      return [];
-    }
-
     return null;
   }
 

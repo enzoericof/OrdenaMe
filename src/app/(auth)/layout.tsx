@@ -8,12 +8,12 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
             Un panel privado para dejar de vivir entre recordatorios sueltos.
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-8 text-stone-300">
-            Habitos, metas y seguimiento diario en un solo lugar. Acceso privado, cuentas creadas manualmente y foco
+            Hábitos, metas y seguimiento diario en un solo lugar. Acceso privado, cuentas creadas manualmente y foco
             total en simplicidad.
           </p>
           <div className="mt-10 grid gap-4 sm:grid-cols-3">
             {[
-              ["Habitos", "Rutinas claras cada dia."],
+              ["Hábitos", "Rutinas claras cada día."],
               ["Metas", "Seguimiento real de objetivos."],
               ["Privacidad", "Cada usuario ve solo lo suyo."],
             ].map(([title, body]) => (

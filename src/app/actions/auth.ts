@@ -1,11 +1,9 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 
-import { LOCAL_AUTH_COOKIE } from "@/lib/constants";
 import { getSupabaseServerClient } from "@/lib/supabase/server";
 
 type ActionState = {
@@ -14,16 +12,16 @@ type ActionState = {
 };
 
 const loginSchema = z.object({
-  email: z.union([z.email("Ingresa un email valido."), z.literal("admin")]),
-  password: z.string().min(1, "Ingresa tu contrasena."),
+  email: z.email("Ingresa un email válido."),
+  password: z.string().min(8, "La contraseña debe tener al menos 8 caracteres."),
 });
 
 const forgotPasswordSchema = z.object({
-  email: z.email("Ingresa un email valido."),
+  email: z.email("Ingresa un email válido."),
 });
 
 const resetSchema = z.object({
-  password: z.string().min(8, "La contrasena debe tener al menos 8 caracteres."),
+  password: z.string().min(8, "La contraseña debe tener al menos 8 caracteres."),
 });
 
 export async function signInAction(_: ActionState, formData: FormData): Promise<ActionState> {
@@ -33,37 +31,21 @@ export async function signInAction(_: ActionState, formData: FormData): Promise<
   });
 
   if (!parsed.success) {
-    return { error: parsed.error.issues[0]?.message ?? "Datos invalidos." };
+    return { error: parsed.error.issues[0]?.message ?? "Datos inválidos." };
   }
 
   const supabase = await getSupabaseServerClient();
 
   if (!supabase) {
-    if (
-      parsed.data.email === "admin" &&
-      parsed.data.password === "admin"
-    ) {
-      const cookieStore = await cookies();
-      cookieStore.set(LOCAL_AUTH_COOKIE, "admin", {
-        httpOnly: true,
-        sameSite: "lax",
-        secure: false,
-        path: "/",
-      });
-
-      revalidatePath("/panel");
-      redirect("/panel");
-    }
-
     return {
-      error: "En modo local, usa admin como usuario y admin como contrasena.",
+      error: "El acceso no está disponible en este momento.",
     };
   }
 
   const { error } = await supabase.auth.signInWithPassword(parsed.data);
 
   if (error) {
-    return { error: "No se pudo iniciar sesion. Verifica tus credenciales." };
+    return { error: "No se pudo iniciar sesión. Verificá tus credenciales." };
   }
 
   revalidatePath("/panel");
@@ -79,14 +61,14 @@ export async function forgotPasswordAction(
   });
 
   if (!parsed.success) {
-    return { error: parsed.error.issues[0]?.message ?? "Email invalido." };
+    return { error: parsed.error.issues[0]?.message ?? "Email inválido." };
   }
 
   const supabase = await getSupabaseServerClient();
 
   if (!supabase) {
     return {
-      error: "La recuperacion de contrasena requiere Supabase configurado.",
+      error: "La recuperación de contraseña no está disponible en este momento.",
     };
   }
 
@@ -95,11 +77,11 @@ export async function forgotPasswordAction(
   });
 
   if (error) {
-    return { error: "No se pudo iniciar la recuperacion." };
+    return { error: "No se pudo iniciar la recuperación." };
   }
 
   return {
-    success: "Te enviamos un correo para restablecer tu contrasena.",
+    success: "Te enviamos un correo para restablecer tu contraseña.",
   };
 }
 
@@ -112,14 +94,14 @@ export async function resetPasswordAction(
   });
 
   if (!parsed.success) {
-    return { error: parsed.error.issues[0]?.message ?? "Contrasena invalida." };
+    return { error: parsed.error.issues[0]?.message ?? "Contraseña inválida." };
   }
 
   const supabase = await getSupabaseServerClient();
 
   if (!supabase) {
     return {
-      error: "La actualizacion de contrasena requiere Supabase configurado.",
+      error: "La actualización de contraseña no está disponible en este momento.",
     };
   }
 
@@ -128,10 +110,10 @@ export async function resetPasswordAction(
   });
 
   if (error) {
-    return { error: "No se pudo actualizar la contrasena." };
+    return { error: "No se pudo actualizar la contraseña." };
   }
 
-  return { success: "Contrasena actualizada. Ya puedes volver a iniciar sesion." };
+  return { success: "Contraseña actualizada. Ya puedes volver a iniciar sesión." };
 }
 
 export async function signOutAction() {
@@ -139,9 +121,6 @@ export async function signOutAction() {
 
   if (supabase) {
     await supabase.auth.signOut();
-  } else {
-    const cookieStore = await cookies();
-    cookieStore.delete(LOCAL_AUTH_COOKIE);
   }
 
   revalidatePath("/", "layout");

@@ -20,15 +20,15 @@ export default async function LoginPage() {
       <AuthForm
         action={signInAction}
         title="Entrar a tu panel"
-        description="Inicia sesion con la cuenta que fue creada manualmente para vos. Si estas en modo local sin Supabase, usa admin / admin."
-        submitLabel="Iniciar sesion"
+        description="Iniciá sesión con la cuenta que fue creada para vos."
+        submitLabel="Iniciar sesión"
       />
       <div className="flex items-center justify-between px-1 text-sm text-stone-300">
         <Link href="/forgot-password" className="transition hover:text-white">
-          Olvide mi contrasena
+          Olvidé mi contraseña
         </Link>
         <Link href="/" className="transition hover:text-white">
-          Ver presentacion
+          Ver presentación
         </Link>
       </div>
     </div>

@@ -22,7 +22,7 @@ export default async function DashboardPage() {
     <div className="space-y-6">
       <section className="grid gap-4 md:grid-cols-3">
         <MetricCard
-          label="Habitos activos"
+          label="Hábitos activos"
           value={dashboard.activeHabits.length}
           caption={`Tu plan actual admite hasta ${userContext.plan.habit_limit}.`}
         />
@@ -34,7 +34,7 @@ export default async function DashboardPage() {
         <MetricCard
           label="Progreso semanal"
           value={`${dashboard.weeklyProgressPercent}%`}
-          caption={`${dashboard.weeklyCompletionCount} registros en los ultimos 7 dias.`}
+          caption={`${dashboard.weeklyCompletionCount} registros en los últimos 7 días.`}
         />
       </section>
 
@@ -42,7 +42,7 @@ export default async function DashboardPage() {
         <article className="rounded-[28px] border border-white/10 bg-white/6 p-5">
           <div className="flex items-center justify-between gap-4">
             <div>
-              <h3 className="text-xl font-semibold text-white">Habitos de hoy</h3>
+              <h3 className="text-xl font-semibold text-white">Hábitos de hoy</h3>
               <p className="mt-1 text-sm text-stone-300">
                 {dashboard.completedTodayCount} completados hoy.
               </p>
@@ -57,8 +57,8 @@ export default async function DashboardPage() {
           <div className="mt-5 space-y-3">
             {dashboard.activeHabits.length === 0 ? (
               <EmptyState
-                title="Sin habitos activos"
-                description="Crea tus primeras rutinas para empezar a registrar progreso desde hoy."
+                title="Sin hábitos activos"
+                description="Creá tus primeras rutinas para empezar a registrar progreso desde hoy."
               />
             ) : (
               dashboard.activeHabits.slice(0, 5).map((habit) => (
@@ -99,7 +99,7 @@ export default async function DashboardPage() {
             {dashboard.activeGoals.length === 0 ? (
               <EmptyState
                 title="Sin metas activas"
-                description="Crea una meta con fecha limite para convertir tus ideas en seguimiento real."
+                description="Creá una meta con fecha límite para convertir tus ideas en seguimiento real."
               />
             ) : (
               dashboard.activeGoals.slice(0, 5).map((goal) => (

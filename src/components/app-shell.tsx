@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { APP_NAME, COMING_SOON_MODULES } from "@/lib/constants";
+import { APP_NAME } from "@/lib/constants";
 
 type AppShellProps = {
   children: React.ReactNode;
@@ -13,7 +13,7 @@ type AppShellProps = {
 
 const navItems = [
   { href: "/panel", label: "Dashboard" },
-  { href: "/panel/habits", label: "Habitos" },
+  { href: "/panel/habits", label: "Hábitos" },
   { href: "/panel/goals", label: "Metas" },
 ];
 
@@ -43,7 +43,7 @@ export function AppShell({
             <p className="text-sm text-emerald-100/70">Cuenta activa</p>
             <p className="mt-2 text-lg font-medium">{profileName}</p>
             <p className="mt-1 text-sm text-stone-300">
-              Acceso privado. Tus datos estan aislados y protegidos por usuario.
+              Acceso privado. Tus datos están aislados y protegidos por usuario.
             </p>
           </div>
 
@@ -61,17 +61,10 @@ export function AppShell({
           </nav>
 
           <div className="mt-8 rounded-3xl border border-dashed border-white/15 p-4">
-            <p className="text-sm font-medium text-white">Preparado para crecer</p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {COMING_SOON_MODULES.map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-white/10 bg-white/8 px-3 py-1 text-xs text-stone-200"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
+            <p className="text-sm font-medium text-white">Sistema privado</p>
+            <p className="mt-3 text-sm leading-7 text-stone-300">
+              Un solo panel para ordenar tus hábitos, tus metas y tu seguimiento diario.
+            </p>
           </div>
 
           <form action={signOutAction} className="mt-8">
@@ -79,7 +72,7 @@ export function AppShell({
               type="submit"
               className="w-full rounded-2xl border border-white/10 bg-white/8 px-4 py-3 text-sm font-medium text-white transition hover:bg-white/14"
             >
-              Cerrar sesion
+              Cerrar sesión
             </button>
           </form>
         </aside>

@@ -53,16 +53,16 @@ export function AuthForm({
         Email
         <input
           name="email"
-          type="text"
+          type="email"
           required
           className="mt-2 w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none placeholder:text-stone-500 focus:border-emerald-300"
-          placeholder="vos@ejemplo.com o admin"
+          placeholder="vos@ejemplo.com"
         />
       </label>
 
       {!emailOnly ? (
         <label className="block text-sm text-stone-200">
-          Contrasena
+          Contraseña
           <input
             name="password"
             type="password"

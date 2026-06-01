@@ -11,8 +11,8 @@ export default function ForgotPasswordPage() {
       {getSupabaseConfig() ? null : <SetupNotice />}
       <AuthForm
         action={forgotPasswordAction}
-        title="Recuperar contrasena"
-        description="Te enviaremos un correo con el enlace para crear una nueva contrasena."
+        title="Recuperar contraseña"
+        description="Te enviaremos un correo con el enlace para crear una nueva contraseña."
         submitLabel="Enviar enlace"
         emailOnly
       />
