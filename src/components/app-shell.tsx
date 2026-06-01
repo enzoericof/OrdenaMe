@@ -26,62 +26,64 @@ export function AppShell({
   signOutAction,
 }: AppShellProps) {
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,#2f6a5c_0%,#12332d_36%,#081311_72%)] text-stone-50">
-      <div className="mx-auto flex min-h-screen max-w-7xl flex-col gap-6 px-4 py-4 lg:flex-row lg:px-6">
-        <aside className="w-full rounded-[32px] border border-white/10 bg-white/6 p-5 backdrop-blur lg:sticky lg:top-4 lg:h-[calc(100vh-2rem)] lg:w-80">
-          <div className="flex items-center justify-between gap-3">
+    <div className="min-h-screen bg-transparent text-[var(--foreground)]">
+      <div className="mx-auto flex min-h-screen max-w-7xl flex-col gap-5 px-4 py-4 lg:flex-row lg:px-6">
+        <aside className="w-full rounded-[30px] border border-[var(--border)] bg-[var(--sidebar)] p-5 shadow-[0_30px_80px_rgba(0,0,0,0.45)] lg:sticky lg:top-4 lg:h-[calc(100vh-2rem)] lg:w-80">
+          <div className="flex items-start justify-between gap-3">
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-emerald-200/70">Panel privado</p>
-              <h1 className="mt-2 text-2xl font-semibold">{APP_NAME}</h1>
+              <p className="text-[11px] uppercase tracking-[0.32em] text-[var(--text-soft)]">
+                Sistema privado
+              </p>
+              <h1 className="mt-3 text-3xl font-semibold tracking-tight text-white">{APP_NAME}</h1>
             </div>
-            <span className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs text-emerald-100">
+            <span className="rounded-full border border-[var(--border)] bg-[var(--card)] px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-[var(--text-muted)]">
               {planName}
             </span>
           </div>
 
-          <div className="mt-8 rounded-3xl border border-white/10 bg-black/20 p-4">
-            <p className="text-sm text-emerald-100/70">Cuenta activa</p>
-            <p className="mt-2 text-lg font-medium">{profileName}</p>
-            <p className="mt-1 text-sm text-stone-300">
+          <div className="mt-8 rounded-[24px] border border-[var(--border)] bg-[var(--surface)] p-4">
+            <p className="text-xs uppercase tracking-[0.24em] text-[var(--text-soft)]">Cuenta activa</p>
+            <p className="mt-3 text-lg font-medium text-white">{profileName}</p>
+            <p className="mt-2 text-sm leading-7 text-[var(--text-muted)]">
               Acceso privado. Tus datos están aislados y protegidos por usuario.
             </p>
           </div>
 
           <nav className="mt-8 space-y-2">
-            {navItems.map((item) => (
+            {navItems.map((item, index) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="flex items-center justify-between rounded-2xl border border-transparent px-4 py-3 text-sm text-stone-200 transition hover:border-white/10 hover:bg-white/8 hover:text-white"
+                className="group flex items-center justify-between rounded-[18px] border border-transparent bg-transparent px-4 py-3 text-sm text-[var(--text-muted)] hover:border-[var(--border)] hover:bg-[var(--card)] hover:text-white"
               >
                 <span>{item.label}</span>
-                <span className="text-stone-500">/</span>
+                <span className="font-mono text-xs text-[var(--text-soft)]">0{index + 1}</span>
               </Link>
             ))}
           </nav>
 
-          <div className="mt-8 rounded-3xl border border-dashed border-white/15 p-4">
-            <p className="text-sm font-medium text-white">Sistema privado</p>
-            <p className="mt-3 text-sm leading-7 text-stone-300">
-              Un solo panel para ordenar tus hábitos, tus metas y tu seguimiento diario.
+          <div className="mt-8 rounded-[24px] bg-[var(--card)] p-4">
+            <p className="text-sm font-medium text-white">Sistema personal</p>
+            <p className="mt-3 text-sm leading-7 text-[var(--text-muted)]">
+              Un panel para ordenar hábitos, metas y seguimiento diario con foco en claridad y control.
             </p>
           </div>
 
           <form action={signOutAction} className="mt-8">
             <button
               type="submit"
-              className="w-full rounded-2xl border border-white/10 bg-white/8 px-4 py-3 text-sm font-medium text-white transition hover:bg-white/14"
+              className="w-full rounded-[18px] border border-[var(--border)] bg-[var(--card)] px-4 py-3 text-sm font-medium text-white hover:border-[#3a2230] hover:bg-[#1a1218]"
             >
               Cerrar sesión
             </button>
           </form>
         </aside>
 
-        <main className="flex-1 rounded-[32px] border border-white/10 bg-black/18 p-6 backdrop-blur">
-          <div className="border-b border-white/10 pb-6">
-            <p className="text-xs uppercase tracking-[0.3em] text-emerald-200/70">Sistema personal</p>
-            <h2 className="mt-3 text-3xl font-semibold">{heading}</h2>
-            <p className="mt-2 max-w-2xl text-sm text-stone-300">{description}</p>
+        <main className="flex-1 rounded-[30px] border border-[var(--border)] bg-[var(--surface)] p-6 shadow-[0_30px_80px_rgba(0,0,0,0.35)]">
+          <div className="border-b border-[var(--border)] pb-6">
+            <p className="text-[11px] uppercase tracking-[0.32em] text-[var(--text-soft)]">Panel de control</p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white">{heading}</h2>
+            <p className="mt-3 max-w-2xl text-sm leading-7 text-[var(--text-muted)]">{description}</p>
           </div>
           <div className="mt-6">{children}</div>
         </main>

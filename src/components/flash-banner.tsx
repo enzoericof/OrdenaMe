@@ -1,9 +1,9 @@
 import { cn } from "@/lib/utils";
 
 const toneClasses = {
-  success: "border-emerald-400/30 bg-emerald-500/10 text-emerald-100",
-  error: "border-rose-400/30 bg-rose-500/10 text-rose-100",
-  info: "border-sky-400/30 bg-sky-500/10 text-sky-100",
+  success: "bg-[rgba(34,197,94,0.12)] text-emerald-100",
+  error: "bg-[rgba(225,29,72,0.14)] text-rose-100",
+  info: "bg-[rgba(6,182,212,0.14)] text-sky-100",
 } as const;
 
 type FlashBannerProps = {
@@ -17,7 +17,7 @@ export function FlashBanner({ message, tone = "info" }: FlashBannerProps) {
   return (
     <div
       className={cn(
-        "rounded-2xl border px-4 py-3 text-sm",
+        "rounded-[20px] px-4 py-3 text-sm shadow-[0_12px_24px_rgba(0,0,0,0.2)]",
         toneClasses[tone as keyof typeof toneClasses] ?? toneClasses.info,
       )}
     >

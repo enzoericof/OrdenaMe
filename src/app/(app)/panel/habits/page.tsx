@@ -35,12 +35,16 @@ export default async function HabitsPage({
     <div className="space-y-6">
       <FlashBanner message={message} tone={tone} />
 
-      <section className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+      <section className="grid gap-6 lg:grid-cols-[0.86fr_1.14fr]">
         <div className="space-y-4">
-          <div className="rounded-[28px] border border-white/10 bg-white/6 p-5">
-            <p className="text-sm text-stone-300">Límite del plan</p>
-            <p className="mt-3 text-4xl font-semibold text-white">{userContext.plan.habit_limit}</p>
-            <p className="mt-2 text-sm text-stone-400">Hábitos activos permitidos en tu cuenta.</p>
+          <div className="rounded-[26px] bg-[var(--card)] p-5 shadow-[0_20px_44px_rgba(0,0,0,0.24)]">
+            <p className="text-sm text-[var(--text-muted)]">Límite del plan</p>
+            <p className="mt-3 text-4xl font-semibold tracking-tight text-[#ff6a9b]">
+              {userContext.plan.habit_limit}
+            </p>
+            <p className="mt-2 text-sm leading-7 text-[var(--text-soft)]">
+              Hábitos activos permitidos en tu cuenta.
+            </p>
           </div>
           <HabitForm action={saveHabitAction} submitLabel="Crear hábito" />
         </div>
@@ -56,26 +60,26 @@ export default async function HabitsPage({
               const logCount = habitsData.recentLogs.filter((log) => log.habit_id === habit.id).length;
 
               return (
-                <article key={habit.id} className="rounded-[28px] border border-white/10 bg-white/6 p-5">
+                <article key={habit.id} className="rounded-[28px] bg-[var(--card)] p-5 shadow-[0_20px_44px_rgba(0,0,0,0.24)]">
                   <div className="flex flex-col gap-4 xl:flex-row xl:items-start xl:justify-between">
                     <div className="space-y-3">
                       <div className="flex flex-wrap items-center gap-2">
                         <h3 className="text-xl font-semibold text-white">{habit.title}</h3>
-                        <span className="rounded-full border border-white/10 bg-black/15 px-3 py-1 text-xs text-stone-300">
+                        <span className="rounded-full bg-[var(--surface)] px-3 py-1 text-xs text-[var(--text-muted)]">
                           {HABIT_FREQUENCY_LABELS[habit.frequency]}
                         </span>
-                        <span className="rounded-full border border-white/10 bg-black/15 px-3 py-1 text-xs text-stone-300">
+                        <span className="rounded-full bg-[var(--surface)] px-3 py-1 text-xs text-[var(--text-muted)]">
                           {habit.is_active ? "Activo" : "Pausado"}
                         </span>
                       </div>
-                      <p className="text-sm text-stone-400">
+                      <p className="text-sm text-[var(--text-soft)]">
                         Creado el {formatDate(habit.created_at.slice(0, 10))}. {logCount} registros en los últimos 7 días.
                       </p>
                       <form action={toggleHabitCompletionAction}>
                         <input type="hidden" name="habit_id" value={habit.id} />
                         <button
                           type="submit"
-                          className="rounded-full bg-[#d8ff96] px-4 py-2 text-sm font-semibold text-[#0a1611] transition hover:bg-[#e7ffbc]"
+                          className="rounded-full bg-[var(--primary)] px-4 py-2 text-sm font-semibold text-white hover:bg-[var(--primary-hover)]"
                         >
                           {completedToday.has(habit.id) ? "Desmarcar hoy" : "Marcar hoy"}
                         </button>
@@ -97,7 +101,7 @@ export default async function HabitsPage({
                         <input type="hidden" name="habit_id" value={habit.id} />
                         <button
                           type="submit"
-                          className="w-full rounded-2xl border border-rose-400/20 bg-rose-500/10 px-4 py-3 text-sm font-medium text-rose-100 transition hover:bg-rose-500/20"
+                          className="w-full rounded-[18px] bg-[rgba(225,29,72,0.14)] px-4 py-3 text-sm font-medium text-rose-100 hover:bg-[rgba(225,29,72,0.22)]"
                         >
                           Eliminar hábito
                         </button>
