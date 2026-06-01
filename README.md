@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# OrdenaMe
 
-## Getting Started
+MVP de un sistema web privado de productividad personal, enfocado en el **Plan Basico**:
 
-First, run the development server:
+- login privado
+- dashboard
+- habitos
+- metas
+- limites por plan
+- seguridad con Row Level Security
+
+## Stack
+
+- Next.js 16
+- React 19
+- Supabase Auth + Postgres
+- Vercel para deploy
+
+## Configuracion local
+
+1. Copia las variables de ejemplo:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cp .env.example .env.local
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Completa:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```env
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+`NEXT_PUBLIC_SITE_URL` se usa para el flujo de recuperacion de contrasena.
 
-## Learn More
+3. Aplica el esquema SQL en Supabase:
 
-To learn more about Next.js, take a look at the following resources:
+- [supabase/schema.sql](/C:/Users/enzoe/Documents/Codex/Ordename/supabase/schema.sql)
+- [supabase/seed.sql](/C:/Users/enzoe/Documents/Codex/Ordename/supabase/seed.sql)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Instala dependencias y levanta el proyecto:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm install
+npm run dev
+```
 
-## Deploy on Vercel
+## Flujo inicial recomendado
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Crear usuarios manualmente desde Supabase Auth
+- Dejar que el trigger cree `profiles`
+- Asignar `plan_slug` manualmente si quieres cambiar de plan
+- Entrar al panel desde `/login`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Rutas principales
+
+- `/` landing comercial / demo
+- `/login` acceso privado
+- `/forgot-password` recuperacion
+- `/reset-password` nueva contrasena
+- `/panel` dashboard
+- `/panel/habits` gestion de habitos
+- `/panel/goals` gestion de metas
+
+## Que incluye este MVP
+
+- aislamiento multiusuario con `user_id`
+- tablas `profiles`, `plans`, `habits`, `habit_logs`, `goals`
+- RLS aplicada en todas las tablas del usuario
+- limite de 20 habitos activos y 30 metas activas para plan basico
+- acciones del servidor para auth, CRUD y seguimiento diario
+
+## Verificacion
+
+```bash
+npm run lint
+npm run build
+```
