@@ -7,39 +7,39 @@ import { formatGuaranies } from "@/lib/utils";
 
 const features = [
   {
-    eyebrow: "HÁBITOS",
+    eyebrow: "HABITOS",
     title: "Tu rutina en un solo lugar",
     description:
-      "Registrá hábitos, mantené constancia y mirá tu avance sin depender de notas sueltas o recordatorios perdidos.",
+      "Registra habitos, mantene constancia y mira tu avance sin depender de notas sueltas o recordatorios perdidos.",
   },
   {
     eyebrow: "METAS",
     title: "Objetivos con seguimiento real",
     description:
-      "Separá metas grandes en progreso visible para que tu semana tenga dirección y no quede solo en intención.",
+      "Separa metas grandes en progreso visible para que tu semana tenga direccion y no quede solo en intencion.",
   },
   {
     eyebrow: "FOCO",
-    title: "Menos ruido, más control",
+    title: "Menos ruido, mas control",
     description:
-      "OrdenaMe junta tus prioridades en un panel privado para que sepas qué sostener, qué ajustar y qué atacar hoy.",
+      "OrdenaMe junta tus prioridades en un panel privado para que sepas que sostener, que ajustar y que atacar hoy.",
   },
 ];
 
 const audience = [
-  "Estudiantes con materias, entregas y exámenes",
+  "Estudiantes con materias, entregas y examenes",
   "Personas que trabajan y estudian al mismo tiempo",
-  "Freelancers con horarios y energía variables",
-  "Jóvenes que quieren construir disciplina sin fricción",
+  "Freelancers con horarios y energia variables",
+  "Jovenes que quieren construir disciplina sin friccion",
 ];
 
 const plans = [
   {
-    name: "Básico",
+    name: "Basico",
     price: 50000,
-    highlight: "Validación simple",
-    description: "Para empezar con hábitos, metas y acceso privado a tu sistema personal.",
-    items: ["Login privado", "Dashboard personal", "Gestión de hábitos", "Gestión de metas", "Límites y seguridad"],
+    highlight: "Validacion simple",
+    description: "Para empezar con habitos, metas y acceso privado a tu sistema personal.",
+    items: ["Login privado", "Dashboard personal", "Gestion de habitos", "Gestion de metas", "Limites y seguridad"],
     accent: "bg-[var(--primary)]",
     featured: false,
   },
@@ -47,8 +47,8 @@ const plans = [
     name: "Fundador",
     price: 75000,
     highlight: "Oferta inicial",
-    description: "Para quienes quieren entrar temprano, acompañar el producto y tener más cercanía.",
-    items: ["Cupo limitado", "Configuración inicial incluida", "Feedback directo contigo", "Prioridad en mejoras", "Mínimo 3 meses"],
+    description: "Para quienes quieren entrar temprano, acompanar el producto y tener mas cercania.",
+    items: ["Cupo limitado", "Configuracion inicial incluida", "Feedback directo contigo", "Prioridad en mejoras", "Minimo 3 meses"],
     accent: "bg-[var(--warning)]",
     featured: true,
   },
@@ -58,35 +58,35 @@ const extras = [
   {
     title: "Acceso privado",
     description:
-      "No hay registro abierto. Cada cuenta se habilita manualmente para mantener calidad, soporte y una experiencia más cuidada.",
+      "No hay registro abierto. Cada cuenta se habilita manualmente para mantener calidad, soporte y una experiencia mas cuidada.",
   },
   {
     title: "Sistema simple",
     description:
-      "Nada de menús infinitos ni herramientas frías. La idea es ordenar tu vida, no agregarte otra app pesada.",
+      "Nada de menus infinitos ni herramientas frias. La idea es ordenar tu vida, no agregarte otra app pesada.",
   },
 ];
 
 const faqs = [
   {
-    question: "¿Qué resuelve OrdenaMe?",
+    question: "Que resuelve OrdenaMe?",
     answer:
-      "Centraliza hábitos, metas y seguimiento semanal para que dejes de repartir tu organización entre WhatsApp, notas, hojas y memoria.",
+      "Centraliza habitos, metas y seguimiento semanal para que dejes de repartir tu organizacion entre WhatsApp, notas, hojas y memoria.",
   },
   {
-    question: "¿Es una app pública?",
+    question: "Es una app publica?",
     answer:
       "No. El acceso es privado y controlado. La idea es trabajar con una base chica al principio para cuidar la experiencia y construir mejor el producto.",
   },
   {
-    question: "¿Para quién está pensado?",
+    question: "Para quien esta pensado?",
     answer:
-      "Para personas con muchas cosas en la cabeza: estudio, trabajo, objetivos personales, rutinas y necesidad de sostener foco en el día a día.",
+      "Para personas con muchas cosas en la cabeza: estudio, trabajo, objetivos personales, rutinas y necesidad de sostener foco en el dia a dia.",
   },
   {
-    question: "¿Qué incluye el plan inicial?",
+    question: "Que incluye el plan inicial?",
     answer:
-      "Incluye acceso al panel, módulos de hábitos y metas, seguimiento básico y acompañamiento según el plan que elijas.",
+      "Incluye acceso al panel, modulos de habitos y metas, seguimiento basico y acompanamiento segun el plan que elijas.",
   },
 ];
 
@@ -94,8 +94,8 @@ export default function MarketingHome() {
   return (
     <div className="min-h-screen bg-transparent text-white">
       <div className="mx-auto flex min-h-screen max-w-[1560px] flex-col bg-[var(--background)] px-4 pb-8 sm:px-6">
-        <header className="sticky top-0 z-40 -mx-4 bg-[var(--background)] px-4 sm:-mx-6 sm:px-6">
-          <div className="mx-auto grid max-w-[1720px] grid-cols-[auto_1fr_auto] items-center gap-6 py-4">
+        <header className="fixed inset-x-0 top-0 z-50 bg-[var(--background)] px-4 sm:px-6">
+          <div className="mx-auto grid max-w-[1560px] grid-cols-[auto_1fr_auto] items-center gap-6 py-4">
             <Link href="/" className="flex min-w-0 items-center gap-3 justify-self-start">
               <div className="relative h-11 w-11 shrink-0 overflow-hidden">
                 <Image
@@ -121,7 +121,7 @@ export default function MarketingHome() {
                 href="#como-funciona"
                 className="rounded-full px-4 py-2 text-sm font-medium text-[var(--text-muted)] hover:bg-[var(--card)] hover:text-white"
               >
-                Cómo funciona
+                Como funciona
               </a>
               <a
                 href="#planes"
@@ -149,18 +149,18 @@ export default function MarketingHome() {
           </div>
         </header>
 
-        <main className="flex-1 pt-8">
+        <main className="flex-1 pt-[7.75rem]">
           <section className="flex min-h-[calc(100svh-8.5rem)] items-center pt-4">
-            <div className="grid w-full gap-7 lg:grid-cols-[1.02fr_0.98fr] lg:items-center xl:gap-8">
-              <div className="max-w-[780px]">
+            <div className="grid w-full gap-7 lg:grid-cols-[0.96fr_1.04fr] lg:items-center xl:gap-10">
+              <div className="max-w-[760px]">
                 <span className="inline-flex rounded-full border border-[#3a2230] bg-[var(--primary-soft)] px-4 py-2 text-[10px] uppercase tracking-[0.32em] text-[#ff7ba8]">
-                  Sistema personal para hábitos y metas
+                  Sistema personal para habitos y metas
                 </span>
                 <h1 className="mt-5 text-[4.15rem] font-semibold leading-[0.93] tracking-[-0.05em] text-white sm:text-[4.6rem] xl:text-[4.85rem]">
-                  Convertí tu vida en un dashboard.
+                  Converti tu vida en un dashboard.
                 </h1>
                 <p className="mt-5 max-w-[700px] text-[1.32rem] leading-[2.45rem] text-[var(--text-muted)] xl:text-[1.38rem] xl:leading-[2.55rem]">
-                  {APP_TAGLINE} {APP_NAME} te ayuda a ordenar hábitos, metas y progreso semanal desde una interfaz
+                  {APP_TAGLINE} {APP_NAME} te ayuda a ordenar habitos, metas y progreso semanal desde una interfaz
                   privada, clara y firme.
                 </p>
 
@@ -180,37 +180,17 @@ export default function MarketingHome() {
                 </div>
               </div>
 
-              <div className="grid gap-4">
-                <div className="rounded-[28px] border border-[rgba(255,255,255,0.05)] bg-[var(--surface)] p-6 shadow-[0_30px_90px_rgba(0,0,0,0.38)] xl:p-7">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--text-soft)]">Estado actual</p>
-                      <p className="mt-3 text-3xl font-semibold tracking-tight text-white">Orden mental</p>
-                    </div>
-                    <div className="rounded-full bg-[var(--primary-soft)] px-4 py-2 text-sm font-semibold text-[#ff7ba8]">
-                      En foco
-                    </div>
-                  </div>
-
-                  <div className="mt-8 space-y-4">
-                    <div className="rounded-[22px] bg-[var(--card)] p-5">
-                      <p className="text-sm text-[var(--text-muted)]">Hábitos activos</p>
-                      <p className="mt-2 text-4xl font-semibold text-white">06</p>
-                      <p className="mt-3 text-sm leading-7 text-[var(--text-muted)]">
-                        Seguimiento simple para sostener constancia sin perder contexto.
-                      </p>
-                    </div>
-                    <div className="grid gap-4 sm:grid-cols-2">
-                      <div className="rounded-[22px] bg-[var(--card)] p-5">
-                        <p className="text-sm text-[var(--text-muted)]">Metas</p>
-                        <p className="mt-2 text-2xl font-semibold text-[#fb7185]">Priorizadas</p>
-                      </div>
-                      <div className="rounded-[22px] bg-[var(--card)] p-5">
-                        <p className="text-sm text-[var(--text-muted)]">Acceso</p>
-                        <p className="mt-2 text-2xl font-semibold text-[#f59e0b]">Privado</p>
-                      </div>
-                    </div>
-                  </div>
+              <div className="relative">
+                <div className="pointer-events-none absolute inset-x-10 bottom-6 top-10 rounded-[44px] bg-[radial-gradient(circle,rgba(255,0,92,0.14)_0%,rgba(255,0,92,0.04)_45%,transparent_76%)] blur-3xl" />
+                <div className="relative overflow-hidden rounded-[32px] border border-[rgba(255,255,255,0.05)] bg-[linear-gradient(180deg,rgba(17,17,24,0.96)_0%,rgba(11,11,16,0.98)_100%)] shadow-[0_34px_120px_rgba(0,0,0,0.46)]">
+                  <Image
+                    src="/brand/hero-visual.png"
+                    alt="Vista previa de OrdenaMe en laptop y movil"
+                    width={1680}
+                    height={1120}
+                    className="h-auto w-full object-contain"
+                    priority
+                  />
                 </div>
               </div>
             </div>
@@ -218,13 +198,13 @@ export default function MarketingHome() {
 
           <section id="como-funciona" className="pt-12 pb-10 xl:pt-16">
             <div className="max-w-3xl">
-              <p className="text-[11px] uppercase tracking-[0.32em] text-[#ff7ba8]">Cómo funciona</p>
+              <p className="text-[11px] uppercase tracking-[0.32em] text-[#ff7ba8]">Como funciona</p>
               <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
                 Una estructura clara para bajar el ruido mental.
               </h2>
               <p className="mt-5 max-w-2xl text-base leading-8 text-[var(--text-muted)] sm:text-lg">
-                La referencia de Presenza tiene una secuencia comercial muy clara. Acá la adaptamos a OrdenaMe para que
-                se sienta más sistema que landing, pero con el mismo orden narrativo.
+                La referencia de Presenza tiene una secuencia comercial muy clara. Aca la adaptamos a OrdenaMe para que
+                se sienta mas sistema que landing, pero con el mismo orden narrativo.
               </p>
             </div>
 
@@ -245,7 +225,7 @@ export default function MarketingHome() {
           <section className="py-10">
             <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr]">
               <div className="rounded-[32px] bg-[var(--surface)] p-8 shadow-[0_24px_70px_rgba(0,0,0,0.35)]">
-                <p className="text-[11px] uppercase tracking-[0.32em] text-[var(--text-soft)]">Para quién es</p>
+                <p className="text-[11px] uppercase tracking-[0.32em] text-[var(--text-soft)]">Para quien es</p>
                 <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white">
                   Hecho para personas con demasiadas cosas en la cabeza.
                 </h2>
@@ -264,11 +244,11 @@ export default function MarketingHome() {
               <div className="rounded-[32px] bg-[var(--card)] p-8 shadow-[0_24px_70px_rgba(0,0,0,0.35)]">
                 <p className="text-[11px] uppercase tracking-[0.32em] text-[var(--text-soft)]">Posicionamiento</p>
                 <h2 className="mt-4 text-3xl font-semibold tracking-tight text-[#fb923c]">
-                  Productividad con sensación de control.
+                  Productividad con sensacion de control.
                 </h2>
                 <p className="mt-5 text-sm leading-8 text-[var(--text-muted)]">
-                  OrdenaMe no busca verse como una app genérica de productividad. Se presenta como un sistema personal,
-                  privado y serio para sostener disciplina con más estructura y menos improvisación.
+                  OrdenaMe no busca verse como una app generica de productividad. Se presenta como un sistema personal,
+                  privado y serio para sostener disciplina con mas estructura y menos improvisacion.
                 </p>
 
                 <div className="mt-8 space-y-3">
@@ -290,10 +270,10 @@ export default function MarketingHome() {
             <div className="mx-auto max-w-3xl text-center">
               <p className="text-[11px] uppercase tracking-[0.32em] text-[#ff7ba8]">Planes</p>
               <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-                Elegí cómo querés empezar a ordenar tu sistema.
+                Elegi como queres empezar a ordenar tu sistema.
               </h2>
               <p className="mt-5 text-base leading-8 text-[var(--text-muted)] sm:text-lg">
-                Tomamos la idea de planes bien visibles de la landing de referencia, pero con una lectura más sobria y
+                Tomamos la idea de planes bien visibles de la landing de referencia, pero con una lectura mas sobria y
                 compacta para el tono de OrdenaMe.
               </p>
             </div>
@@ -363,12 +343,12 @@ export default function MarketingHome() {
           <section className="py-10">
             <div className="overflow-hidden rounded-[36px] bg-[linear-gradient(155deg,#130d14_0%,#1b0c16_50%,#2d0d19_100%)] px-7 py-12 shadow-[0_40px_120px_rgba(0,0,0,0.42)] sm:px-10 sm:py-16">
               <div className="mx-auto max-w-3xl text-center">
-                <p className="text-[11px] uppercase tracking-[0.32em] text-[#ff9abb]">Empezá ahora</p>
+                <p className="text-[11px] uppercase tracking-[0.32em] text-[#ff9abb]">Empeza ahora</p>
                 <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-                  Menos caos suelto. Más estructura diaria.
+                  Menos caos suelto. Mas estructura diaria.
                 </h2>
                 <p className="mt-5 text-base leading-8 text-[rgba(248,250,252,0.76)] sm:text-lg">
-                  Si querés organizar hábitos, metas y progreso desde un panel serio y privado, OrdenaMe ya tiene una
+                  Si queres organizar habitos, metas y progreso desde un panel serio y privado, OrdenaMe ya tiene una
                   base lista para arrancar.
                 </p>
                 <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -394,7 +374,7 @@ export default function MarketingHome() {
           <div className="flex flex-col gap-4 text-sm text-[var(--text-muted)] sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="font-semibold text-white">{APP_NAME}</p>
-              <p className="mt-1">Sistema personal privado para organizar hábitos, metas y progreso.</p>
+              <p className="mt-1">Sistema personal privado para organizar habitos, metas y progreso.</p>
             </div>
             <Link href="/login" className="font-semibold text-[#ff7ba8] hover:text-[#ff9bbb]">
               Ir al acceso privado
