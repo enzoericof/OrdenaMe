@@ -5,34 +5,6 @@ import { MarketingScrollProgress } from "@/components/marketing-scroll-progress"
 import { APP_NAME } from "@/lib/constants";
 import { formatGuaranies } from "@/lib/utils";
 
-const features = [
-  {
-    eyebrow: "HÁBITOS",
-    title: "Tu rutina en un solo lugar",
-    description:
-      "Registrá hábitos, mantené constancia y mirá tu avance sin depender de notas sueltas o recordatorios perdidos.",
-  },
-  {
-    eyebrow: "METAS",
-    title: "Objetivos con seguimiento real",
-    description:
-      "Separá metas grandes en progreso visible para que tu semana tenga dirección y no quede solo en intención.",
-  },
-  {
-    eyebrow: "FOCO",
-    title: "Menos ruido, más control",
-    description:
-      "OrdenaMe junta tus prioridades en un panel privado para que sepas qué sostener, qué ajustar y qué atacar hoy.",
-  },
-];
-
-const audience = [
-  "Estudiantes con materias, entregas y exámenes",
-  "Personas que trabajan y estudian al mismo tiempo",
-  "Freelancers con horarios y energía variables",
-  "Jóvenes que quieren construir disciplina sin fricción",
-];
-
 const plans = [
   {
     name: "Básico",
@@ -67,39 +39,64 @@ const plans = [
   },
 ];
 
-const extras = [
-  {
-    title: "Acceso privado",
-    description:
-      "No hay registro abierto. Cada cuenta se habilita manualmente para mantener calidad, soporte y una experiencia más cuidada.",
-  },
-  {
-    title: "Sistema simple",
-    description:
-      "Nada de menús infinitos ni herramientas frías. La idea es ordenar tu vida, no agregarte otra app pesada.",
-  },
-];
-
 const faqs = [
   {
-    question: "¿Qué resuelve OrdenaMe?",
+    question: "¿Qué es OrdenaMe?",
     answer:
-      "Centraliza hábitos, metas y seguimiento semanal para que dejes de repartir tu organización entre WhatsApp, notas, hojas y memoria.",
+      "OrdenaMe es un sistema personal de productividad que te permite organizar hábitos, metas y progreso diario desde un dashboard privado.",
   },
   {
-    question: "¿Es una app pública?",
+    question: "¿Necesito instalar algo?",
     answer:
-      "No. El acceso es privado y controlado. La idea es trabajar con una base chica al principio para cuidar la experiencia y construir mejor el producto.",
+      "No. OrdenaMe funciona desde el navegador, por lo que podés usarlo desde tu computadora, tablet o celular.",
   },
   {
-    question: "¿Para quién está pensado?",
+    question: "¿Mis datos son privados?",
     answer:
-      "Para personas con muchas cosas en la cabeza: estudio, trabajo, objetivos personales, rutinas y necesidad de sostener foco en el día a día.",
+      "Sí. Cada usuario accede con su propia cuenta y visualiza únicamente la información de su panel personal.",
   },
   {
-    question: "¿Qué incluye el plan inicial?",
+    question: "¿Puedo usarlo desde el celular?",
     answer:
-      "Incluye acceso al panel, módulos de hábitos y metas, seguimiento básico y acompañamiento según el plan que elijas.",
+      "Sí. OrdenaMe está pensado para funcionar desde el navegador, tanto en celular como en computadora.",
+  },
+  {
+    question: "¿OrdenaMe es una app móvil?",
+    answer: "No por ahora. Es una plataforma web, por lo que no necesitás descargar una aplicación.",
+  },
+  {
+    question: "¿Puedo registrar mis finanzas personales?",
+    answer:
+      "Sí, en el Plan Productividad podés registrar ingresos, gastos, categorías y ver un resumen simple de tus movimientos.",
+  },
+  {
+    question: "¿OrdenaMe se conecta con mi banco?",
+    answer:
+      "No. El registro financiero es manual. No solicitamos credenciales bancarias ni acceso a cuentas financieras.",
+  },
+  {
+    question: "¿Qué significa control de malos hábitos?",
+    answer:
+      "Es una función para hacer seguimiento de hábitos que querés reducir o evitar, como procrastinar, gastar de más o perder demasiado tiempo en redes.",
+  },
+  {
+    question: "¿Puedo cancelar mi plan?",
+    answer: "Sí. Podés cancelar tu plan mensual antes del siguiente período de cobro.",
+  },
+  {
+    question: "¿Cómo empiezo a usar OrdenaMe?",
+    answer:
+      "Elegís un plan, solicitás tu acceso y creamos tu cuenta privada para que puedas empezar a usar tu dashboard.",
+  },
+  {
+    question: "¿Puedo pedir funciones personalizadas?",
+    answer:
+      "Sí. Las funciones o ajustes personalizados pueden evaluarse y cotizarse aparte según el caso.",
+  },
+  {
+    question: "¿Para quién está pensado OrdenaMe?",
+    answer:
+      "Está pensado para estudiantes, personas que trabajan y estudian, jóvenes profesionales y cualquier persona que quiera organizar mejor sus hábitos, metas y rutina diaria.",
   },
 ];
 
@@ -119,11 +116,11 @@ const comparisonRows = [
 
 export default function MarketingHome() {
   return (
-    <div className="min-h-screen bg-transparent text-white">
+    <div id="inicio" className="min-h-screen bg-transparent text-white">
       <div className="mx-auto flex min-h-screen max-w-[1560px] flex-col bg-[var(--background)] px-4 pb-8 sm:px-6">
         <header className="fixed inset-x-0 top-0 z-50 bg-[var(--background)] px-4 sm:px-6">
-          <div className="mx-auto grid max-w-[1560px] grid-cols-[auto_1fr_auto] items-center gap-6 py-4">
-            <Link href="/" className="flex min-w-0 items-center gap-3 justify-self-start">
+          <div className="relative mx-auto flex max-w-[1560px] items-center justify-between gap-6 py-4">
+            <a href="#inicio" className="flex min-w-0 items-center gap-3 justify-self-start">
               <div className="relative h-11 w-11 shrink-0 overflow-hidden">
                 <Image
                   src="/brand/logo-solo.png"
@@ -141,14 +138,17 @@ export default function MarketingHome() {
                   Sistema personal privado
                 </span>
               </div>
-            </Link>
+            </a>
 
-            <nav aria-label="Principal" className="hidden items-center justify-center gap-3 md:flex">
+            <nav
+              aria-label="Principal"
+              className="hidden md:flex md:absolute md:left-1/2 md:-translate-x-1/2 md:items-center md:justify-center md:gap-3"
+            >
               <a
-                href="#como-funciona"
+                href="#info"
                 className="rounded-full px-4 py-2 text-sm font-medium text-[var(--text-muted)] hover:bg-[var(--card)] hover:text-white"
               >
-                Cómo funciona
+                Info
               </a>
               <a
                 href="#planes"
@@ -166,7 +166,7 @@ export default function MarketingHome() {
 
             <Link
               href="/login"
-              className="justify-self-end rounded-full border border-[#ff4d86] bg-[#101018] px-7 py-2.5 text-sm font-semibold text-[#ffe7ef] hover:border-[#ff6a9b] hover:bg-[#151520]"
+              className="justify-self-end rounded-full bg-[var(--primary)] px-7 py-2.5 text-sm font-semibold text-white shadow-[0_18px_48px_rgba(255,0,92,0.22)] hover:bg-[var(--primary-hover)]"
             >
               Entrar
             </Link>
@@ -224,73 +224,131 @@ export default function MarketingHome() {
             </div>
           </section>
 
-          <section id="como-funciona" className="pt-12 pb-10 xl:pt-16">
+          <section id="info" className="py-10 xl:py-14">
             <div className="max-w-3xl">
-              <p className="text-[11px] uppercase tracking-[0.32em] text-[#ff7ba8]">Cómo funciona</p>
+              <p className="text-[11px] uppercase tracking-[0.32em] text-[#ff7ba8]">Info</p>
               <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-                Una estructura clara para bajar el ruido mental.
+                Una forma simple de ordenar tu vida diaria
               </h2>
-              <p className="mt-5 max-w-2xl text-base leading-8 text-[var(--text-muted)] sm:text-lg">
-                La referencia de Presenza tiene una secuencia comercial muy clara. Acá la adaptamos a OrdenaMe para que
-                se sienta más sistema que landing, pero con el mismo orden narrativo.
-              </p>
             </div>
 
-            <div className="mt-8 grid gap-5 lg:grid-cols-3">
-              {features.map((feature) => (
-                <article
-                  key={feature.title}
-                  className="rounded-[28px] border border-[rgba(255,255,255,0.05)] bg-[var(--surface)] p-7 shadow-[0_24px_70px_rgba(0,0,0,0.28)]"
-                >
-                  <p className="text-[11px] uppercase tracking-[0.28em] text-[#ff7ba8]">{feature.eyebrow}</p>
-                  <h3 className="mt-4 text-2xl font-semibold tracking-tight text-white">{feature.title}</h3>
-                  <p className="mt-4 text-sm leading-8 text-[var(--text-muted)]">{feature.description}</p>
-                </article>
-              ))}
-            </div>
-          </section>
-
-          <section className="py-10">
-            <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr]">
-              <div className="rounded-[32px] bg-[var(--surface)] p-8 shadow-[0_24px_70px_rgba(0,0,0,0.35)]">
-                <p className="text-[11px] uppercase tracking-[0.32em] text-[var(--text-soft)]">Para quién es</p>
-                <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white">
-                  Hecho para personas con demasiadas cosas en la cabeza.
-                </h2>
-                <div className="mt-7 grid gap-4 sm:grid-cols-2">
-                  {audience.map((item) => (
-                    <div
-                      key={item}
-                      className="rounded-[22px] border border-[rgba(255,255,255,0.04)] bg-[var(--card)] px-4 py-4 text-sm leading-7 text-[var(--text-muted)]"
-                    >
-                      {item}
-                    </div>
-                  ))}
+            <div className="mt-8 grid gap-4">
+              <details className="group rounded-[28px] border border-[rgba(255,255,255,0.05)] bg-[var(--surface)] p-6 shadow-[0_18px_48px_rgba(0,0,0,0.22)]">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
+                  <div>
+                    <p className="text-[11px] uppercase tracking-[0.28em] text-[#ff7ba8]">Introducción</p>
+                    <h3 className="mt-2 text-2xl font-semibold tracking-tight text-white">
+                      Una forma simple de ordenar tu vida diaria
+                    </h3>
+                  </div>
+                  <span className="rounded-full border border-[rgba(255,255,255,0.08)] bg-[var(--card)] px-4 py-2 text-sm font-semibold text-[#ff7ba8] transition-transform duration-200 group-open:rotate-180">
+                    ˅
+                  </span>
+                </summary>
+                <div className="mt-5 max-w-4xl space-y-4 text-sm leading-8 text-[var(--text-muted)] sm:text-base">
+                  <p>
+                    OrdenaMe es un sistema personal de productividad que te ayuda a organizar tus hábitos, metas y
+                    progreso desde un solo dashboard privado.
+                  </p>
+                  <p>
+                    En lugar de tener tus objetivos en notas sueltas, tus hábitos en la cabeza y tu progreso sin medir,
+                    OrdenaMe centraliza todo en una interfaz clara, visual y fácil de usar.
+                  </p>
                 </div>
-              </div>
+              </details>
 
-              <div className="rounded-[32px] bg-[var(--card)] p-8 shadow-[0_24px_70px_rgba(0,0,0,0.35)]">
-                <p className="text-[11px] uppercase tracking-[0.32em] text-[var(--text-soft)]">Posicionamiento</p>
-                <h2 className="mt-4 text-3xl font-semibold tracking-tight text-[#fb923c]">
-                  Productividad con sensación de control.
-                </h2>
-                <p className="mt-5 text-sm leading-8 text-[var(--text-muted)]">
-                  OrdenaMe no busca verse como una app genérica de productividad. Se presenta como un sistema personal,
-                  privado y serio para sostener disciplina con más estructura y menos improvisación.
-                </p>
-
-                <div className="mt-8 space-y-3">
-                  {extras.map((extra) => (
-                    <div
-                      key={extra.title}
-                      className="rounded-[22px] border border-[rgba(255,255,255,0.04)] bg-[rgba(5,5,7,0.35)] p-5"
-                    >
-                      <h3 className="text-base font-semibold text-white">{extra.title}</h3>
-                      <p className="mt-2 text-sm leading-7 text-[var(--text-muted)]">{extra.description}</p>
-                    </div>
-                  ))}
+              <details className="group rounded-[28px] border border-[rgba(255,255,255,0.05)] bg-[var(--surface)] p-6 shadow-[0_18px_48px_rgba(0,0,0,0.22)]">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
+                  <div>
+                    <p className="text-[11px] uppercase tracking-[0.28em] text-[#ff7ba8]">Beneficios</p>
+                    <h3 className="mt-2 text-2xl font-semibold tracking-tight text-white">¿Por qué usar OrdenaMe?</h3>
+                  </div>
+                  <span className="rounded-full border border-[rgba(255,255,255,0.08)] bg-[var(--card)] px-4 py-2 text-sm font-semibold text-[#ff7ba8] transition-transform duration-200 group-open:rotate-180">
+                    ˅
+                  </span>
+                </summary>
+                <div className="mt-5 max-w-4xl space-y-4 text-sm leading-8 text-[var(--text-muted)] sm:text-base">
+                  <p>
+                    Porque organizarse no se trata solo de anotar cosas, sino de poder ver tu avance, mantener
+                    constancia y tomar mejores decisiones sobre tu día a día.
+                  </p>
+                  <p>Con OrdenaMe podés:</p>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3">
+                      <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#ff4d86]" />
+                      <span>Tener una visión clara de tus hábitos y metas.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#ff4d86]" />
+                      <span>Medir tu progreso diario y semanal.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#ff4d86]" />
+                      <span>Mantener el foco en lo que querés mejorar.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#ff4d86]" />
+                      <span>Reducir la improvisación en tu rutina.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#ff4d86]" />
+                      <span>Organizar tu vida personal desde un solo lugar.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#ff4d86]" />
+                      <span>Usar un sistema privado, accesible desde cualquier navegador.</span>
+                    </li>
+                  </ul>
                 </div>
-              </div>
+              </details>
+
+              <details className="group rounded-[28px] border border-[rgba(255,255,255,0.05)] bg-[var(--surface)] p-6 shadow-[0_18px_48px_rgba(0,0,0,0.22)]">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
+                  <div>
+                    <p className="text-[11px] uppercase tracking-[0.28em] text-[#ff7ba8]">Perfil</p>
+                    <h3 className="mt-2 text-2xl font-semibold tracking-tight text-white">¿Para quién es?</h3>
+                  </div>
+                  <span className="rounded-full border border-[rgba(255,255,255,0.08)] bg-[var(--card)] px-4 py-2 text-sm font-semibold text-[#ff7ba8] transition-transform duration-200 group-open:rotate-180">
+                    ˅
+                  </span>
+                </summary>
+                <div className="mt-5 max-w-4xl space-y-4 text-sm leading-8 text-[var(--text-muted)] sm:text-base">
+                  <p>
+                    OrdenaMe está pensado para personas que quieren mejorar su organización personal sin usar
+                    herramientas complicadas.
+                  </p>
+                  <p>Es ideal para:</p>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3">
+                      <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#ff4d86]" />
+                      <span>Estudiantes que quieren organizar hábitos, metas y responsabilidades.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#ff4d86]" />
+                      <span>Personas que trabajan y estudian.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#ff4d86]" />
+                      <span>Jóvenes profesionales con varias obligaciones.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#ff4d86]" />
+                      <span>Personas que quieren construir mejores rutinas.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#ff4d86]" />
+                      <span>Quienes desean medir su progreso personal con más claridad.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-[#ff4d86]" />
+                      <span>
+                        Personas que buscan dejar de tener su organización repartida entre notas, listas y aplicaciones
+                        distintas.
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </details>
             </div>
           </section>
 
@@ -300,10 +358,6 @@ export default function MarketingHome() {
               <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
                 Elegí cómo querés empezar a ordenar tu sistema.
               </h2>
-              <p className="mt-5 text-base leading-8 text-[var(--text-muted)] sm:text-lg">
-                Tomamos la idea de planes bien visibles de la landing de referencia, pero con una lectura más sobria y
-                compacta para el tono de OrdenaMe.
-              </p>
             </div>
 
             <div className="mt-8 grid gap-6 lg:grid-cols-2">
@@ -395,29 +449,28 @@ export default function MarketingHome() {
           </section>
 
           <section id="preguntas" className="py-10">
-            <div className="grid gap-8 lg:grid-cols-[0.42fr_0.58fr]">
-              <div>
-                <p className="text-[11px] uppercase tracking-[0.32em] text-[#ff7ba8]">Preguntas</p>
-                <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-                  Lo que casi siempre te vas a preguntar.
-                </h2>
-                <p className="mt-5 max-w-md text-base leading-8 text-[var(--text-muted)]">
-                  Mantuvimos la idea del bloque FAQ de Presenza para cerrar objeciones, pero adaptado a esta etapa del
-                  producto.
-                </p>
-              </div>
+            <div className="max-w-3xl">
+              <p className="text-[11px] uppercase tracking-[0.32em] text-[#ff7ba8]">Preguntas</p>
+              <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+                Preguntas frecuentes
+              </h2>
+            </div>
 
-              <div className="grid gap-4">
-                {faqs.map((faq) => (
-                  <article
-                    key={faq.question}
-                    className="rounded-[24px] border border-[rgba(255,255,255,0.05)] bg-[var(--surface)] p-6"
-                  >
-                    <h3 className="text-lg font-semibold text-white">{faq.question}</h3>
-                    <p className="mt-3 text-sm leading-8 text-[var(--text-muted)]">{faq.answer}</p>
-                  </article>
-                ))}
-              </div>
+            <div className="mt-8 grid gap-4">
+              {faqs.map((faq) => (
+                <details
+                  key={faq.question}
+                  className="group rounded-[28px] border border-[rgba(255,255,255,0.05)] bg-[var(--surface)] p-6 shadow-[0_18px_48px_rgba(0,0,0,0.22)]"
+                >
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
+                    <h3 className="text-2xl font-semibold tracking-tight text-white">{faq.question}</h3>
+                    <span className="rounded-full border border-[rgba(255,255,255,0.08)] bg-[var(--card)] px-4 py-2 text-sm font-semibold text-[#ff7ba8] transition-transform duration-200 group-open:rotate-180">
+                      ˅
+                    </span>
+                  </summary>
+                  <p className="mt-5 max-w-4xl text-sm leading-8 text-[var(--text-muted)] sm:text-base">{faq.answer}</p>
+                </details>
+              ))}
             </div>
           </section>
 
@@ -428,10 +481,6 @@ export default function MarketingHome() {
                 <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
                   Menos caos suelto. Más estructura diaria.
                 </h2>
-                <p className="mt-5 text-base leading-8 text-[rgba(248,250,252,0.76)] sm:text-lg">
-                  Si querés organizar hábitos, metas y progreso desde un panel serio y privado, OrdenaMe ya tiene una
-                  base lista para arrancar.
-                </p>
                 <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
                   <Link
                     href="/login"
@@ -440,7 +489,7 @@ export default function MarketingHome() {
                     Ir al acceso privado
                   </Link>
                   <a
-                    href="#como-funciona"
+                    href="#inicio"
                     className="inline-flex items-center justify-center rounded-full border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.04)] px-7 py-3.5 text-sm font-semibold text-white hover:bg-[rgba(255,255,255,0.08)]"
                   >
                     Volver arriba
@@ -452,14 +501,37 @@ export default function MarketingHome() {
         </main>
 
         <footer className="mt-8 border-t border-[rgba(255,255,255,0.05)] pt-6">
-          <div className="flex flex-col gap-4 text-sm text-[var(--text-muted)] sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-6 text-sm text-[var(--text-muted)] lg:flex-row lg:items-center lg:justify-between">
             <div>
               <p className="font-semibold text-white">{APP_NAME}</p>
               <p className="mt-1">Sistema personal privado para organizar hábitos, metas y progreso.</p>
+              <p className="mt-1">Somos de Asunción, Paraguay.</p>
+              <p className="mt-2 text-xs uppercase tracking-[0.24em] text-[#ff7ba8]">
+                Hecho por ingenieros informáticos
+              </p>
             </div>
-            <Link href="/login" className="font-semibold text-[#ff7ba8] hover:text-[#ff9bbb]">
-              Ir al acceso privado
-            </Link>
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-end">
+              <a
+                href="https://wa.me/?text=Hola%20OrdenaMe%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n."
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center rounded-full border border-[rgba(255,255,255,0.1)] bg-[var(--surface)] px-5 py-3 font-semibold text-white hover:bg-[var(--card)]"
+              >
+                Contacto por WhatsApp
+              </a>
+              <a
+                href="mailto:contacto@ordename.app?subject=Consulta%20sobre%20OrdenaMe"
+                className="inline-flex items-center justify-center rounded-full border border-[rgba(255,255,255,0.1)] bg-[var(--surface)] px-5 py-3 font-semibold text-white hover:bg-[var(--card)]"
+              >
+                Contacto por correo
+              </a>
+              <Link
+                href="/login"
+                className="inline-flex items-center justify-center rounded-full px-5 py-3 font-semibold text-[#ff7ba8] hover:text-[#ff9bbb]"
+              >
+                Ir al acceso privado
+              </Link>
+            </div>
           </div>
         </footer>
       </div>
